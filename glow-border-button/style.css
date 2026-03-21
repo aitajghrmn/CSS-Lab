@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  }
+
+body {
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+background: #0f172a;
+}
+
+.glow-btn {
+position: relative;
+padding: 15px 40px;
+font-size: 18px;
+color: white;
+background: transparent;
+border: none;
+cursor: pointer;
+overflow: hidden;
+}
+
+/* glowing border */
+.glow-btn::before {
+content: "";
+position: absolute;
+inset: 0;
+border-radius: 8px;
+padding: 2px;
+background: linear-gradient(45deg, #00f5ff, #ff00c8, #00f5ff);
+background-size: 300% 300%;
+animation: borderMove 6s linear infinite;
+-webkit-mask:
+linear-gradient(#000 0 0) content-box,
+linear-gradient(#000 0 0);
+-webkit-mask-composite: xor;
+mask-composite: exclude;
+}
+
+.glow-btn::after {
+content: "";
+position: absolute;
+inset: 0;
+background: rgba(255,255,255,0.05);
+border-radius: 8px;
+opacity: 0;
+transition: 0.3s;
+}
+
+.glow-btn:hover::after {
+opacity: 1;
+}
+
+@keyframes borderMove {
+0% { background-position: 0% 50%; }
+100% { background-position: 300% 50%; }
+}
