@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #020617;
+}
+
+/* card */
+.card {
+  position: relative;
+  padding: 40px;
+  border-radius: 16px;
+  color: white;
+  backdrop-filter: blur(20px);
+  background: rgba(255,255,255,0.05);
+  overflow: hidden;
+}
+
+/* animated border */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 16px;
+  background: linear-gradient(120deg, #00f5ff, #ff00c8, #00f5ff);
+  background-size: 300% 300%;
+  animation: move 6s linear infinite;
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* glow effect */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15), transparent 70%);
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+@keyframes move {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
