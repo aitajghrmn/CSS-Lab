@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Neon Text</title>
+
+<style>
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+}
+
+h1 {
+  font-size: 60px;
+  color: #fff;
+  text-shadow:
+    0 0 5px #00f5ff,
+    0 0 10px #00f5ff,
+    0 0 20px #00f5ff,
+    0 0 40px #00f5ff;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow:
+      0 0 5px #00f5ff,
+      0 0 10px #00f5ff;
+  }
+  to {
+    text-shadow:
+      0 0 20px #00f5ff,
+      0 0 40px #00f5ff,
+      0 0 80px #00f5ff;
+  }
+}
+</style>
+</head>
+<body>
+
+<h1>NEON</h1>
+
+</body>
+</html>
