@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Underline Hover</title>
+
+<style>
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+}
+
+a {
+  position: relative;
+  color: white;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: #00f5ff;
+  transition: 0.4s;
+}
+
+a:hover::after {
+  width: 100%;
+}
+</style>
+</head>
+<body>
+
+<a href="#">Hover Me</a>
+
+</body>
+</html>
