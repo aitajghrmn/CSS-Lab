@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0b111e;
+  font-family: sans-serif;
+}
+
+.container {
+  position: relative;
+  transform: skewY(-15deg);
+  perspective: 1000px;
+  transition: 0.5s;
+}
+
+.card {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  background: #151f32;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: -20px 20px 20px rgba(0, 0, 0, 0.5);
+  transition: 0.5s;
+}
+
+.card:hover {
+  transform: translateY(-40px);
+  box-shadow: -50px 50px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* 3D Yan Tərəflərin Yaradılması (Sol və Alt) */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -15px;
+  width: 15px;
+  height: 100%;
+  background: #111a28;
+  transform-origin: right;
+  transform: skewY(45deg);
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  width: 100%;
+  height: 15px;
+  background: #1f2d47;
+  transform-origin: top;
+  transform: skewX(45deg);
+}
+
+.img-box {
+  font-size: 3em;
+  font-weight: 800;
+  color: #00dfa2;
+  text-shadow: 0 0 20px #00dfa2;
+}
+
+.content {
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
