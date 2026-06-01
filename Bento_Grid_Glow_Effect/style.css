@@ -1,0 +1,79 @@
+body {
+  background-color: #050508;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+.bento-grid {
+  display: grid;
+  width: 100%;
+  max-width: 900px;
+  gap: 15px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "card1 card1 card2"
+    "card3 card4 card4"
+    "card3 card5 auto";
+}
+
+.item {
+  background: linear-gradient(145deg, #12121a, #1a1a26);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 30px;
+  color: #a0a0ba;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hər bir xanaya Grid sahəsi təyin edirik */
+.item-1 { grid-area: card1; }
+.item-2 { grid-area: card2; }
+.item-3 { grid-area: card3; }
+.item-4 { grid-area: card4; }
+.item-5 { grid-area: card5; }
+
+/* Qəliz hover effekti - Border border rəngini dəyişir və daxili işıq saçır */
+.item:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 223, 162, 0.4);
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(0, 223, 162, 0.1);
+}
+
+/* Neon künc nöqtəsi effekti */
+.item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top left, rgba(0, 223, 162, 0.15), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.item:hover::before {
+  opacity: 1;
+}
+
+/* Mobil cihazlar üçün reaktivlik (Responsive) */
+@media (max-width: 768px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas: none;
+  }
+  .item {
+    grid-area: auto !important;
+  }
+}
