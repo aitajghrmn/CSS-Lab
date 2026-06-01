@@ -25,3 +25,7 @@ You can add new effects by creating a new folder with:
 - `index.html`
 - `style.css`
 - `preview.png`
+
+
+## 🚀 Xüsusi Nümunələr
+* 🌟 **[Custom Scrollbar & Scroll-Driven Animation](./Custom_Custom_Scrollbar_And_Scroll_Driven)** — Sırf CSS ilə hazırladığım və ən çox bəyəndiyim animasiya nümunəsi!
