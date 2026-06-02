@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: #010105;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 500px;
+  overflow: hidden;
+}
+
+.tunnel {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+}
+
+.ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 4px dashed #00dfa2;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #00dfa2, inset 0 0 15px #00dfa2;
+  animation: move-tunnel 3s linear infinite;
+  /* Hər bir halqanın gecikməsini riyazi olaraq nizamlayırıq */
+  animation-delay: calc(var(--i) * -0.6s);
+}
+
+/* Hər ikinci halqanın rəngini fərqli edək ki qəliz görünsün */
+.ring:nth-child(even) {
+  border-color: #7f00ff;
+  box-shadow: 0 0 15px #7f00ff, inset 0 0 15px #7f00ff;
+}
+
+@keyframes move-tunnel {
+  0% {
+    transform: translateZ(-500px) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% {
+    transform: translateZ(500px) rotate(360deg);
+    opacity: 0;
+  }
+}
