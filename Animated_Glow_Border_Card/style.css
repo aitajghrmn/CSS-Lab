@@ -1,0 +1,58 @@
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+body {
+  background: #050508;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.card {
+  background: #1c1c24;
+  width: 300px;
+  height: 400px;
+  border-radius: 20px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Fırlanan Neon Fon */
+.card::before, .card::after {
+  content: "";
+  position: absolute;
+  inset: -0.2rem; /* Sərhəd qalınlığı */
+  z-index: -1;
+  background: conic-gradient(
+    from var(--gradient-angle),
+    #00dfa2,
+    #7f00ff,
+    #ff007f,
+    #00dfa2
+  );
+  border-radius: inherit;
+  animation: rotation 3s linear infinite;
+}
+
+/* Arxa tərəfə güclü parlama (blur) effekti vermək üçün */
+.card::after {
+  filter: blur(20px);
+  opacity: 0.7;
+}
+
+@keyframes rotation {
+  0% { --gradient-angle: 0deg; }
+  100% { --gradient-angle: 360deg; }
+}
