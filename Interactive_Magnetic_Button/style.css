@@ -1,0 +1,60 @@
+body {
+  background: #0c0d14;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.mag-button {
+  position: relative;
+  padding: 20px 50px;
+  background: #161722;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.mag-button span {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+/* Arxadakı gizli işıq topu */
+.mag-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, #7f00ff 0%, #ff007f 100%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+  filter: blur(10px);
+  z-index: 1;
+}
+
+/* Hover zamanı butonun böyüməsi və işığın yayılması */
+.mag-button:hover {
+  transform: scale(1.08);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.mag-button:hover::before {
+  width: 250px;
+  height: 250px;
+}
+
+.mag-button:active {
+  transform: scale(0.95);
+}
