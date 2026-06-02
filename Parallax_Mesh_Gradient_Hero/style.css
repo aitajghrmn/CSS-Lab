@@ -1,0 +1,49 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #030008;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mesh-bg {
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  top: -20%;
+  left: -20%;
+  background-image: 
+    radial-gradient(at 20% 30%, #7f00ff 0px, transparent 50%),
+    radial-gradient(at 80% 20%, #00dfa2 0px, transparent 50%),
+    radial-gradient(at 40% 80%, #ff007f 0px, transparent 50%),
+    radial-gradient(at 80% 80%, #00f0ff 0px, transparent 50%);
+  background-blend-mode: screen;
+  filter: blur(60px);
+  opacity: 0.45;
+  animation: mesh-move 20s ease infinite alternate;
+}
+
+h1 {
+  color: #fff;
+  font-size: 4rem;
+  letter-spacing: 5px;
+  z-index: 1;
+  text-transform: uppercase;
+  text-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+@keyframes mesh-move {
+  0% { transform: translate(0px, 0px) rotate(0deg); }
+  50% { transform: translate(100px, 80px) rotate(180deg); }
+  100% { transform: translate(-50px, 40px) rotate(360deg); }
+}
