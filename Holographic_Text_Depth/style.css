@@ -1,0 +1,56 @@
+body {
+  background: #06060c;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-family: 'Arial Black', sans-serif;
+}
+
+.holo-text {
+  position: relative;
+  font-size: 6rem;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 5px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+/* Arxa plandakı bənövşəyi və firuzəyi hologram layları */
+.holo-text::before, .holo-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  transition: transform 0.4s;
+  mix-blend-mode: screen;
+  opacity: 0.7;
+}
+
+.holo-text::before {
+  color: #7f00ff;
+  z-index: -1;
+}
+
+.holo-text::after {
+  color: #00f0ff;
+  z-index: -2;
+}
+
+/* Hover olanda hər bir qat fərqli koordinata və bucağa sürüşür (Dərinlik effekti) */
+.holo-text:hover {
+  text-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+  transform: scale(1.05) rotateX(10deg) rotateY(-10deg);
+}
+
+.holo-text:hover::before {
+  transform: translate(8px, -5px) scale(0.98);
+}
+
+.holo-text:hover::after {
+  transform: translate(-8px, 5px) scale(0.95);
+}
