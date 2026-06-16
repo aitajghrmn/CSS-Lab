@@ -1,0 +1,53 @@
+body {
+  background: #030305;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.noise-box {
+  position: relative;
+  width: 350px;
+  height: 200px;
+  background: linear-gradient(135deg, #11111b, #1a0b2e);
+  border-radius: 20px;
+  border: 1px solid rgba(127, 0, 255, 0.3);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* SVG-ni arxa fona yerləşdirib parazit effekti vermək */
+.noise-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  filter: url(#noiseFilter);
+  opacity: 0.15; /* Parazitin gücü */
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.svg-noise {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.content span {
+  color: #ff007f;
+  font-weight: bold;
+  font-size: 1.5rem;
+  letter-spacing: 4px;
+  animation: blink 1.5s infinite steps(2);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0.3; text-shadow: none; }
+  50% { opacity: 1; text-shadow: 0 0 10px #ff007f; }
+}
